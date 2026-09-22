@@ -1,0 +1,55 @@
+name: Build morning feed
+
+on:
+  schedule:
+    # 06:00 Europe/Madrid. GitHub cron is UTC, so 05:00 UTC ≈ 06:00 winter /
+    # 07:00 summer. Adjust if you want a stricter local time.
+    - cron: "0 5 * * *"
+  workflow_dispatch: {}   # lets you trigger a rebuild manually from the Actions tab
+  push:
+    branches: [main]       # rebuild whenever you edit the feed list
+
+# Permissions required for the deploy-to-Pages action.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# If a run is already going, let the newer one supersede it.
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Build index.html
+        run: python build.py
+
+      - name: Upload page artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .                      # the folder containing index.html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

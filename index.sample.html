@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morning feed</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbf9; --fg: #1a1a1a; --muted: #777; --line: #e4e4e0;
+    --link: #1a4fa0; --accent: #b03a2e; --card: #ffffff;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16171a; --fg: #e8e8e6; --muted: #8a8a8a; --line: #2c2e33;
+      --link: #7fb0ff; --accent: #e0857a; --card: #1d1f23;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  header { border-bottom: 2px solid var(--line); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; }
+  .built { color: var(--muted); font-size: .8rem; }
+  .feed { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+           padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+  .feed h2 { font-size: 1.02rem; margin: 0 0 .6rem; color: var(--accent); }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: .35rem 0; border-top: 1px solid var(--line); }
+  li:first-child { border-top: none; }
+  .date { color: var(--muted); font-variant-numeric: tabular-nums; font-size: .8rem;
+           margin-right: .6rem; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .error { color: var(--accent); font-size: .85rem; margin: .3rem 0 0; font-style: italic; }
+  footer { color: var(--muted); font-size: .78rem; text-align: center; margin-top: 2rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Morning feed</h1>
+      <div class="built">Rebuilt 2026-09-22 14:31 UTC</div>
+    </header>
+    <section class="feed">
+      <h2>Simon Willison — Agentic Engineering Patterns</h2>
+      <ul>
+        <li><span class="date">2026-09-20</span><a href="https://ex.com/a" target="_blank" rel="noopener">Designing agentic loops</a></li>
+        <li><span class="date">2026-09-17</span><a href="https://ex.com/b" target="_blank" rel="noopener">Vibe coding &lt;danger&gt; &amp; &quot;quotes&quot;</a></li>
+        <li><span class="date">2026-08-13</span><a href="https://ex.com/c" target="_blank" rel="noopener">Older post</a></li>
+      </ul>
+    </section>
+    <section class="feed">
+      <h2>Simon Willison — Blog (everything)</h2>
+      <ul>
+        <li><span class="date">2026-09-21</span><a href="https://ex.com/d" target="_blank" rel="noopener">Daily post 1</a></li>
+      </ul>
+    </section>
+    <section class="feed">
+      <h2>Latent Space</h2>
+      <p class="error">No entries returned (HTTP 404) (mock parse error)</p>
+    </section>
+    <section class="feed">
+      <h2>Ahead of AI — Sebastian Raschka</h2>
+      <ul>
+        <li><span class="date">2026-09-19</span><a href="https://ex.com/e" target="_blank" rel="noopener">LLM architecture deep dive</a></li>
+      </ul>
+    </section>
+    <footer>Regenerated daily from source RSS/Atom feeds.</footer>
+  </div>
+</body>
+</html>
