@@ -57,6 +57,13 @@ FEEDS = [
 # A browser-like User-Agent; some hosts reject the default feedparser agent.
 USER_AGENT = "morning-feed/1.0 (+https://github.com; personal RSS reader)"
 
+# Favicon: brain + circuit-node mark, embedded inline as a data URI so there's
+# no separate file to host. Shows in the browser tab and next to bookmarks.
+FAVICON = (
+    "data:image/svg+xml;base64,"
+    "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxYTRmYTAiLz48cGF0aCBkPSJNMzIgMTNjLTUuNSAwLTkgMy4yLTkuMyA3LjJjLTMuNCAwLjYtNS43IDMuMS01LjcgNi4zYzAgMS44IDAuOCAzLjQgMiA0LjZjLTEuMiAxLjEtMiAyLjctMiA0LjVjMCAzLjQgMi43IDYuMSA2LjQgNi4zYzAuNiAzLjMgMy45IDUuOCA4LjYgNS44WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZWFmMWZiIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTMyIDEzYzUuNSAwIDkgMy4yIDkuMyA3LjJjMy40IDAuNiA1LjcgMy4xIDUuNyA2LjNjMCAxLjgtMC44IDMuNC0yIDQuNmMxLjIgMS4xIDIgMi43IDIgNC41YzAgMy40LTIuNyA2LjEtNi40IDYuM2MtMC42IDMuMy0zLjkgNS44LTguNiA1LjhaIiBmaWxsPSJub25lIiBzdHJva2U9IiNlYWYxZmIiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMzIiIHkxPSIxMyIgeDI9IjMyIiB5Mj0iNDcuOCIgc3Ryb2tlPSIjZWFmMWZiIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMi40IiBmaWxsPSIjN2ZkNGZmIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzMCIgcj0iMi40IiBmaWxsPSIjN2ZkNGZmIi8+PGNpcmNsZSBjeD0iMjUiIGN5PSIzOCIgcj0iMi40IiBmaWxsPSIjN2ZkNGZmIi8+PGxpbmUgeDE9IjI0IiB5MT0iMjQiIHgyPSI0MCIgeTI9IjMwIiBzdHJva2U9IiM3ZmQ0ZmYiIHN0cm9rZS13aWR0aD0iMS40IiBvcGFjaXR5PSIwLjc1Ii8+PGxpbmUgeDE9IjQwIiB5MT0iMzAiIHgyPSIyNSIgeTI9IjM4IiBzdHJva2U9IiM3ZmQ0ZmYiIHN0cm9rZS13aWR0aD0iMS40IiBvcGFjaXR5PSIwLjc1Ii8+PC9zdmc+Cg=="
+)
+
 
 def entry_datetime(entry):
     """Return a sortable datetime for an entry, or a very old date if missing."""
@@ -135,6 +142,8 @@ def render(sections, built_at):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Morning feed</title>
+<link rel="icon" href="{FAVICON}">
+<link rel="apple-touch-icon" href="{FAVICON}">
 <style>
   :root {{
     color-scheme: light dark;
