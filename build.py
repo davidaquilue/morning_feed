@@ -23,9 +23,14 @@ import feedparser
 # ---------------------------------------------------------------------------
 FEEDS = [
     {
-        "name": "Simon Willison — Agentic Engineering Patterns",
-        "url": "https://simonwillison.net/tags/agentic-engineering.atom",
-        "max_items": 8,
+        "name": "ALZFORUM (All)",
+        "url": "http://feeds.feedburner.com/alzforum/PpcR",
+        "max_items": 6,
+    },
+    {
+        "name": "ALZFORUM (Papers of the Week)",
+        "url": "http://feeds.feedburner.com/alzforum/PpcR",
+        "max_items": 6,
     },
     {
         "name": "Simon Willison — Blog (everything)",
@@ -41,6 +46,11 @@ FEEDS = [
         "name": "Ahead of AI — Sebastian Raschka",
         "url": "https://magazine.sebastianraschka.com/feed",
         "max_items": 6,
+    },
+    {
+        "name": "Simon Willison — Agentic Engineering Patterns",
+        "url": "https://simonwillison.net/tags/agentic-engineering.atom",
+        "max_items": 8,
     },
 ]
 

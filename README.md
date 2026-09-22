@@ -5,11 +5,12 @@ each morning, renders a single `index.html`, and publishes it to GitHub Pages.
 You bookmark one URL and check it anywhere.
 
 ## What it tracks
-
-- Simon Willison — Agentic Engineering Patterns (`/tags/agentic-engineering.atom`)
+- ALZFORUM - News
+- ALZFORUM - Papers of the Week
 - Simon Willison — Blog, everything (`/atom/everything/`)
 - Latent Space
 - Ahead of AI (Sebastian Raschka)
+- Simon Willison — Agentic Engineering Patterns (`/tags/agentic-engineering.atom`)
 
 Edit the `FEEDS` list at the top of `build.py` to change any of this.
 
